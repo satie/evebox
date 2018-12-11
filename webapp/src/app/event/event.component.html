@@ -71,7 +71,7 @@
                 <td>Sensor</td>
                 <td>
                   <search-link field="host" [search]="event._source.host"
-                               value="{{event._source.host}}">
+                               value="{{event._source.host.name}}">
                   </search-link>
                 </td>
               </tr>
@@ -237,6 +237,80 @@
                 </table>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Analytics -->
+    <div *ngIf="event._source.analytics">
+      <br/>
+      <div class="card">
+        <div class="card-header">
+          <b>MLE Anlaytics</b>          
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div *ngIf="event._source.analytics.dga" class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <table class="table table-sm table-striped table-hover info-table">
+                    <tr>
+                      <td colspan="2" class="bg-light"><b>DGA</b></td>                      
+                    </tr>
+                    <tr>
+                      <td>Score</td>
+                      <td>{{event._source.analytics.dga.score}}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="event._source.analytics.ip_rep" class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <table class="table table-sm table-striped table-hover info-table">
+                    <tr>
+                      <td colspan="2" class="bg-light"><b>IP Reputation</b></td>                      
+                    </tr>
+                    <tr>
+                      <td>Score</td>
+                      <td>{{event._source.analytics.ip_rep.ip_rep}}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>            
+            <div *ngIf="event._source.analytics.triage" class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <table class="table table-sm table-striped table-hover info-table">
+                    <tr>
+                      <td colspan="2" class="bg-light"><b>Triage</b></td>                      
+                    </tr>
+                    <tr>
+                      <td>Active Network Hosts</td>
+                      <td>{{event._source.analytics.triage.active_network_hosts}}</td>
+                    </tr>
+                    <tr>
+                      <td>Alert Count</td>
+                      <td>{{event._source.analytics.triage.alert_count}}</td>
+                    </tr>
+                    <tr>
+                      <td>Alerts Per Target</td>
+                      <td>{{event._source.analytics.triage.alerts_per_target}}</td>
+                    </tr>
+                    <tr>
+                      <td>Priority</td>
+                      <td>{{event._source.analytics.triage.priority}}</td>
+                    </tr>
+                    <tr>
+                      <td>Unique Targets</td>
+                      <td>{{event._source.analytics.triage.unique_targets}}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>            
           </div>
         </div>
       </div>

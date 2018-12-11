@@ -24,10 +24,13 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {Component, Input, OnDestroy, OnInit} from "@angular/core";
+import {Component, Input, EventEmitter, Output, OnDestroy, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {MousetrapService} from "./mousetrap.service";
 import {ElasticSearchService} from "./elasticsearch.service";
+import {AppService} from "./app.service";
+import {ActivatedRoute} from "@angular/router";
+// import { EventEmitter } from "protractor";
 
 @Component({
     selector: "evebox-event-table",
@@ -46,6 +49,15 @@ import {ElasticSearchService} from "./elasticsearch.service";
             <th>Type</th>
             <!-- Source/Dest. -->
             <th>Source/Dest</th>
+            <!-- Analytics -->
+            <th *ngIf="eventType == 'dns'" (click)="sortBy('analytics.dga.score')">
+                DGA Score
+                <i *ngIf="this.sortByField == 'analytics.dga.score' && this.order == 'asc'" class="fa fa-chevron-up"></i><i *ngIf="this.sortByField == 'analytics.dga.score' && this.order == 'desc'" class="fa fa-chevron-down"></i>
+            </th>
+            <th *ngIf="eventType != 'dns'" (click)="sortBy('analytics.triage.priority')">
+                Priority
+                <i *ngIf="this.sortByField == 'analytics.triage.priority' && this.order == 'asc'" class="fa fa-chevron-up"></i><i *ngIf="this.sortByField == 'analytics.triage.priority' && this.order == 'desc'" class="fa fa-chevron-down"></i>
+            </th>
             <!-- Description. -->
             <th>Description</th>
           </tr>
@@ -71,6 +83,17 @@ import {ElasticSearchService} from "./elasticsearch.service";
               <label>D:</label>
               {{row._source.dest_ip | eveboxFormatIpAddress}}
             </td>
+            <td class="text-nowrap">
+                <div *ngIf="!row._source.analytics">
+                  &nbsp;
+                </div>
+                <div *ngIf="eventType != 'dns' && row._source.analytics && row._source.analytics.triage">
+                    {{row._source.analytics.triage.priority}}
+                </div>
+                <div *ngIf="eventType == 'dns' && row._source.analytics && row._source.analytics.dga">
+                    {{row._source.analytics.dga.score}}
+                </div>
+            </td>
             <td style="word-break: break-all;">{{row |
             eveboxEventDescriptionPrinter}}
               <div *ngIf="getEventType(row) == 'alert' && ! isArchived(row)"
@@ -88,9 +111,13 @@ import {ElasticSearchService} from "./elasticsearch.service";
 })
 export class EveboxEventTableComponent implements OnInit, OnDestroy {
 
+    @Output() sort = new EventEmitter<string>();
     @Input() rows: any[] = null;
+    @Input() eventType: any = null;
 
     activeRow = 0;
+    sortByField = undefined;
+    order = '';
 
     constructor(private router: Router,
                 private mousetrap: MousetrapService,
@@ -144,5 +171,10 @@ export class EveboxEventTableComponent implements OnInit, OnDestroy {
             row._source.tags.push("archived");
             row._source.tags.push("evebox.archived");
         });
+    }
+    sortBy(field: string) {
+        this.sortByField = field;
+        this.order = this.order === 'desc' ? 'asc' :'desc';
+        this.sort.emit(field);
     }
 }

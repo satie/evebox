@@ -88,7 +88,7 @@ import {EVENT_TYPES} from './shared/eventtypes';
               </div>
             </div>
 
-            <div *ngIf="hasEvents()" class="float-right">
+            <div *ngIf="hasEvents()" class="float-right">              
               <button type="button" class="btn btn-secondary mr-2"
                       (click)="gotoNewest()">
                 Newest
@@ -125,7 +125,10 @@ import {EVENT_TYPES} from './shared/eventtypes';
         <br/>
 
         <evebox-event-table
-            [rows]="model.events"></evebox-event-table>
+            (sort)="sortByHeader($event)"
+            [eventType]="model.eventType" 
+            [rows]="model.events">
+        </evebox-event-table>
       </div>`,
     animations: [
         loadingAnimation,
@@ -137,6 +140,7 @@ export class EventsComponent implements OnInit, OnDestroy {
         newestTimestamp: "",
         oldestTimestamp: "",
         events: [],
+        eventType: ""
     };
 
     loading = false;
@@ -152,6 +156,7 @@ export class EventsComponent implements OnInit, OnDestroy {
 
     timeStart: string;
     timeEnd: string;
+    sortBy: string;
     private order: string;
 
     constructor(private route: ActivatedRoute,
@@ -173,8 +178,9 @@ export class EventsComponent implements OnInit, OnDestroy {
 
             if (params.eventType) {
                 this.setEventTypeFilterByEventType(params.eventType);
-            }
+            }            
 
+            this.sortBy = params.sortBy || "";
             this.order = params.order;
             this.refresh();
         });
@@ -191,7 +197,7 @@ export class EventsComponent implements OnInit, OnDestroy {
     setEventTypeFilterByEventType(eventType:string) {
         for (let et of this.eventTypes) {
             if (et.eventType == eventType) {
-                this.eventTypeFilter = et;
+                this.eventTypeFilter = et;                
                 break;
             }
         }
@@ -220,14 +226,17 @@ export class EventsComponent implements OnInit, OnDestroy {
 
     setEventTypeFilter(type: any) {
         this.eventTypeFilter = type;
-        this.appService.updateParams(this.route, {eventType: this.eventTypeFilter.eventType});
+        this.sortBy = undefined;
+        this.order = undefined;
+        this.appService.updateParams(this.route, {eventType: this.eventTypeFilter.eventType, sortBy: this.sortBy, order: this.order});
     }
 
     gotoNewest() {
         this.appService.updateParams(this.route, {
             timeStart: undefined,
             timeEnd: undefined,
-            order: "desc",
+            sortBy: undefined,
+            order: "desc"
         });
     }
 
@@ -235,7 +244,8 @@ export class EventsComponent implements OnInit, OnDestroy {
         this.appService.updateParams(this.route, {
             timeEnd: undefined,
             timeStart: this.model.newestTimestamp,
-            order: "asc",
+            sortBy: undefined,
+            order: "asc"
         });
     }
 
@@ -243,7 +253,8 @@ export class EventsComponent implements OnInit, OnDestroy {
         this.appService.updateParams(this.route, {
             timeEnd: this.model.oldestTimestamp,
             timeStart: undefined,
-            order: "desc",
+            sortBy: undefined,
+            order: "desc"
         });
     }
 
@@ -251,6 +262,7 @@ export class EventsComponent implements OnInit, OnDestroy {
         this.appService.updateParams(this.route, {
             timeEnd: undefined,
             timeStart: undefined,
+            sortBy: undefined,
             order: "asc",
         });
     }
@@ -267,7 +279,8 @@ export class EventsComponent implements OnInit, OnDestroy {
     refresh() {
         this.clearError();
         this.model.events = [];
-        this.loading = true;
+        this.model.eventType = this.eventTypeFilter.eventType;
+        this.loading = true;        
 
         this.api.eventQuery({
             queryString: this.queryString,
@@ -275,15 +288,16 @@ export class EventsComponent implements OnInit, OnDestroy {
             minTs: this.timeStart,
             eventType: this.eventTypeFilter.eventType,
             sortOrder: this.order,
+            sortBy: this.sortBy
         }).pipe(finalize(() => {
             this.loading = false;
         })).subscribe((response) => {
             let events = response.data;
 
             // If the sortOrder is "asc", reverse to put back into descending sortOrder.
-            if (this.order == "asc") {
-                events = events.reverse();
-            }
+            // if (this.order == "asc") {
+            //     events = events.reverse();
+            // }
 
             if (events.length > 0) {
                 this.model.newestTimestamp = events[0]._source["@timestamp"];
@@ -302,5 +316,26 @@ export class EventsComponent implements OnInit, OnDestroy {
     private clearError() {
         this.error = null;
     }
+
+    sortByHeader(field: any) {
+        if (this.sortBy !== field) {
+            this.sortBy = field;
+            this.order = 'desc';
+        } else if (this.sortBy === field) {
+            if (this.order === 'desc') {
+                this.order = 'asc'
+            } else {
+                this.order = 'desc'
+            }
+        }
+
+        this.appService.updateParams(this.route, {
+            timeEnd: undefined,
+            timeStart: undefined,
+            sortBy: this.sortBy,
+            order: this.order
+        });  
+    }
+
 
 }
