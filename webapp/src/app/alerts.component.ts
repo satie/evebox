@@ -370,9 +370,15 @@ export class AlertsComponent implements OnInit, OnDestroy, AfterViewChecked {
                 });
                 break;
             case "timestamp":
-                console.log(this.allRows[0]);
+                // console.log(this.allRows[0]);
                 this.allRows.sort((a: any, b: any) => {
                     return this.compare(a.event.maxTs, b.event.maxTs);
+                });
+                break;
+            case "priority":
+                // console.log(this.allRows[0]);
+                this.allRows.sort((a: any, b: any) => {
+                    return this.compare(a.event.event._source.analytics.triage.priority, b.event.event._source.analytics.triage.priority);
                 });
                 break;
         }
