@@ -33,6 +33,8 @@ import {
 } from "@angular/core";
 import {Location} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
+import flatten from 'flat';
+import analyticsDefinition from '../../analytics.conf';
 import {AlertGroup, ElasticSearchService} from "../elasticsearch.service";
 import {ApiService} from "../api.service";
 import {EventServices} from "../eventservices.service";
@@ -218,6 +220,24 @@ export class EventComponent implements OnInit, OnDestroy {
         catch (err) {
             return false;
         }
+    }
+
+    analytics(): Array<object> {
+        if (this.event._source.analytics) {
+            var flatAnalytics = flatten({ ...this.event._source.analytics});
+            
+            return Object.keys(flatAnalytics).map((key) => {
+                return { title: key, value: flatAnalytics[key]};
+            })
+        }
+        return []
+    }
+    formatTitle(title: string) {
+        if (analyticsDefinition[title]) {
+            return analyticsDefinition[title];
+        }
+        
+        return title;
     }
 
     onCommentSubmit(comment: any) {
