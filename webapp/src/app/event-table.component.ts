@@ -88,10 +88,10 @@ import {ActivatedRoute} from "@angular/router";
                   &nbsp;
                 </div>
                 <div *ngIf="eventType != 'dns' && row._source.analytics && row._source.analytics.triage">
-                    {{row._source.analytics.triage.priority}}
+                    {{row._source.analytics.triage.priority.toFixed(3)}}
                 </div>
                 <div *ngIf="eventType == 'dns' && row._source.analytics && row._source.analytics.dga">
-                    {{row._source.analytics.dga.score}}
+                    {{row._source.analytics.dga.score.toFixed(3)}}
                 </div>
             </td>
             <td style="word-break: break-all;">{{row |
