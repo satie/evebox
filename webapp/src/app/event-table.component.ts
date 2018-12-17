@@ -50,13 +50,17 @@ import {ActivatedRoute} from "@angular/router";
             <!-- Source/Dest. -->
             <th>Source/Dest</th>
             <!-- Analytics -->
-            <th *ngIf="eventType == 'dns'" (click)="sortBy('analytics.dga.score')">
-                DGA Score
-                <i *ngIf="this.sortByField == 'analytics.dga.score' && this.order == 'asc'" class="fa fa-chevron-up"></i><i *ngIf="this.sortByField == 'analytics.dga.score' && this.order == 'desc'" class="fa fa-chevron-down"></i>
+            <th *ngIf="eventType == 'dns'">
+                <a (click)="sortBy('analytics.dga.score')" style="display: block; width: 120px;">
+                    DGA Score
+                    <i *ngIf="this.sortByField == 'analytics.dga.score' && this.order == 'asc'" class="fa fa-chevron-up"></i><i *ngIf="this.sortByField == 'analytics.dga.score' && this.order == 'desc'" class="fa fa-chevron-down"></i>
+                </a>
             </th>
-            <th *ngIf="eventType != 'dns'" (click)="sortBy('analytics.triage.priority')">
-                Priority
-                <i *ngIf="this.sortByField == 'analytics.triage.priority' && this.order == 'asc'" class="fa fa-chevron-up"></i><i *ngIf="this.sortByField == 'analytics.triage.priority' && this.order == 'desc'" class="fa fa-chevron-down"></i>
+            <th *ngIf="eventType != 'dns'">
+                <a (click)="sortBy('analytics.triage.priority')" style="display: block; width: 80px;">
+                    Priority
+                    <i *ngIf="this.sortByField == 'analytics.triage.priority' && this.order == 'asc'" class="fa fa-chevron-up"></i><i *ngIf="this.sortByField == 'analytics.triage.priority' && this.order == 'desc'" class="fa fa-chevron-down"></i>
+                </a>
             </th>
             <!-- Description. -->
             <th>Description</th>
