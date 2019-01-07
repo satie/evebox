@@ -16,7 +16,7 @@ Using the navigation, select `Suricata IDS` > `Administration`.
 
 Below is a screenshot sample of the settings we have just applied, excluding interface selection. That may vary based on the host you have installed OPNids.
 
-![Suricata Settings](doc/../../doc/suricata_settings.png)
+![Suricata Settings](doc/suricata_settings.png)
 
 Once you have clicked `Apply`, Suricata will automatically start.
 
@@ -28,7 +28,7 @@ Using the navigation, select `Dragonfly MLE` > `Administration`.
 
 Once you have clicked `Apply`. Dragonfly MLE will automatically start.
 
-![Dragonfly MLE Settings](doc/../../doc/dragonfly_mle_settings.png)
+![Dragonfly MLE Settings](doc/dragonfly_mle_settings.png)
 
 ### Setup Filebeats
 
@@ -42,13 +42,13 @@ Using the navigation, select `Services` > `Beats` > `Filebeat`.
 
 If everything was done right, you can now click `Test Configuration` to test whether you have a valid filebeats configuration. You can also click `Test Connection` to validate that you have a connection to your Logstash host. If both validations are valid then there is nothing else for you to do with the Filebeat settings. Check out the screenshot below.
 
-![Filebeat Settings](doc/../../doc/filebeat_settings.png)
+![Filebeat Settings](doc/filebeat_settings.png)
 
 Once your done, you can navigate to the `Dashboard` in OPNids and click the green play button for Filebeats.
 
 If everything is up and running, you should see all three services running within the `Services` widget.
 
-![Services Widget](doc/../../doc/services_running.png)
+![Services Widget](doc/services_running.png)
 
 ### Setup Logstash
 
