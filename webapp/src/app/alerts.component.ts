@@ -323,7 +323,6 @@ export class AlertsComponent implements OnInit, OnDestroy, AfterViewChecked {
     onSort(column: string) {
         console.log("Sorting by: " + column);
 
-
         if (column != this.sortBy) {
             this.sortBy = column;
             this.sortOrder = "desc";
@@ -375,7 +374,16 @@ export class AlertsComponent implements OnInit, OnDestroy, AfterViewChecked {
                     return this.compare(a.event.maxTs, b.event.maxTs);
                 });
                 break;
-            case "priority":
+            case "analytics.triage.priority":
+                // checks to see if any records actually has this field
+                let isFound = this.allRows.some(row => {
+                  return typeof row.event.event._source.analytics === 'object' && row.event.event._source.analytics.triage && row.event.event._source.analytics.triage.priority;
+                });
+
+                if (!isFound) {
+                  break;
+                }
+
                 // console.log(this.allRows[0]);
                 this.allRows.sort((a: any, b: any) => {
                     return this.compare(a.event.event._source.analytics.triage.priority, b.event.event._source.analytics.triage.priority);
@@ -385,6 +393,10 @@ export class AlertsComponent implements OnInit, OnDestroy, AfterViewChecked {
 
         if (this.sortOrder === "desc") {
             this.allRows.reverse();
+        }
+
+        if (this.sortBy === 'analytics.triage.priority') {
+          return;
         }
 
         this.rows = this.allRows.slice(this.offset, this.windowSize);
