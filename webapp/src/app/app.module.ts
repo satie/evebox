@@ -88,6 +88,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {DebugComponent} from "./debug/debug.component";
 import {ClientService} from "./client.service";
 import {EveBoxProtoPrettyPrinter} from "./pipes/proto-pretty-printer.pipe";
+import {DGAReportComponent} from "./reports/dga-report.component";
 
 @NgModule({
     declarations: [
@@ -133,6 +134,7 @@ import {EveBoxProtoPrettyPrinter} from "./pipes/proto-pretty-printer.pipe";
         EveBoxEventDescriptionPrinterPipe,
         RuleHighlightPipe,
         EveboxPrintablePipe,
+        DGAReportComponent,
     ],
     imports: [
         // Angular modules.

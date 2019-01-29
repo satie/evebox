@@ -215,6 +215,7 @@ func (s *ReportService) ReportAggs(agg string, options core.ReportOptions) (inte
 		"dns.rrtype": "keyword",
 		"dns.rcode":  "keyword",
 		"dns.rdata":  "keyword",
+		"dns.answers.rrtype": "text",
 
 		// SSH.
 		"ssh.client.software_version": "keyword",

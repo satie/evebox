@@ -44,9 +44,15 @@
       </li>
 
       <li *ngIf="features['reporting']" class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+        <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
            role="button" data-toggle="dropdown" aria-haspopup="true"
            [routerLink]="['/reports']"
+           [routerLinkActive]="['active']"
+           aria-expanded="false">
+          Reports
+        </a> -->
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+           role="button" data-toggle="dropdown" aria-haspopup="true"           
            [routerLinkActive]="['active']"
            aria-expanded="false">
           Reports
@@ -57,6 +63,7 @@
           <a class="dropdown-item" href="#/reports/ssh">SSH</a>
           <a class="dropdown-item" href="#/reports/flow">Flow</a>
           <a class="dropdown-item" href="#/reports/netflow">Netflow</a>
+          <a class="dropdown-item" href="#/reports/dga">DGA</a>
         </div>
       </li>
 

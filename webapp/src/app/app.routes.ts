@@ -40,6 +40,7 @@ import {ConfigService} from "./config.service";
 import {ApiService} from "./api.service";
 import {SettingsComponent} from "./settings/settings.component";
 import {DebugComponent} from "./debug/debug.component";
+import {DGAReportComponent} from "./reports/dga-report.component";
 
 declare var window: any;
 
@@ -131,7 +132,7 @@ const routes: Routes = [
             }
             ,
             {
-                path: "reports",
+                path: "",
                 children: [
                     {
                         path: "alerts",
@@ -153,7 +154,12 @@ const routes: Routes = [
                         path: "ssh",
                         component: SshReportComponent
                     },
+                    
                 ]
+            },
+            {
+                path: "reports/dga",
+                component: DGAReportComponent
             },
             // {path: "reports/alerts", component: AlertReportComponent},
             // {path: "reports/dns", component: DNSReportComponent},
