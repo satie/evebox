@@ -174,12 +174,12 @@
           </a>
         </th>
         <th>
-          <a (click)="onSort('analytics.triage.priority')" style="display: block; width: 80px;">Priority
-            <span *ngIf="sortBy == 'analytics.triage.priority' && sortOrder == 'desc'"><i
+          <a (click)="onSort('priority')" style="display: block; width: 80px;">Priority
+            <span *ngIf="sortBy == 'priority' && sortOrder == 'desc'"><i
                 class="fa fa-caret-down"></i></span>
-            <span *ngIf="sortBy == 'analytics.triage.priority' && sortOrder == 'asc'"><i
+            <span *ngIf="sortBy == 'priority' && sortOrder == 'asc'"><i
                 class="fa fa-caret-up"></i></span>
-          </a>
+          </a>          
         </th>
         <th width="50%"><a (click)="onSort('signature')">Signature <i
             *ngIf="sortBy == 'signature' && sortOrder == 'desc'"
@@ -226,9 +226,7 @@
           {{row.event.event._source.dest_ip | eveboxFormatIpAddress}}
         </td>
         <td class="text-nowrap" style="width: 1% !important">
-          <span *ngIf="row.event.event._source.analytics && row.event.event._source.analytics.triage">
-            {{row.event.event._source.analytics.triage.priority.toFixed(3)}}
-          </span>
+          {{row.event.event._source.priority.priority.toFixed(3)}}
         </td>
         <td>
           <div *ngIf="!isArchived(row)" class="btn-group float-right"

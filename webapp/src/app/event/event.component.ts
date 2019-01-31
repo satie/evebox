@@ -232,7 +232,20 @@ export class EventComponent implements OnInit, OnDestroy {
         }
         return []
     }
+
+    priority(): Array<object> {
+        if (this.event._source.priority) {
+            var flatPriority = flatten({ ...this.event._source.priority});
+            
+            return Object.keys(flatPriority).map((key) => {
+                return { title: key, value: flatPriority[key]};
+            })
+        }
+        return []
+    }
+
     formatTitle(title: string) {
+        console.log(title);
         if (analyticsDefinition[title]) {
             return analyticsDefinition[title];
         }

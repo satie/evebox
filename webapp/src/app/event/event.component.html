@@ -255,7 +255,29 @@
                 <tr *ngFor="let field of analytics()">
                     <td>{{formatTitle(field.title)}}</td>
                     <td>{{field.value}}</td>
-                </tr>
+                </tr>                
+              </table>          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Priority -->
+    <div *ngIf="event._source.priority">
+      <br/>
+      <div class="card">
+        <div class="card-header">
+          <b>Dragonfly MLE Overall Priority</b>          
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <table class="table table-sm table-striped table-hover info-table">                
+                <tr *ngFor="let field of priority()">
+                  <td>{{formatTitle(field.title)}}</td>
+                  <td>{{field.value}}</td>
+              </tr>
               </table>          
             </div>
           </div>
