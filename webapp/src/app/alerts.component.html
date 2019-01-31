@@ -226,7 +226,7 @@
           {{row.event.event._source.dest_ip | eveboxFormatIpAddress}}
         </td>
         <td class="text-nowrap" style="width: 1% !important">
-          {{row.event.event._source.analytics.triage.priority.toFixed(3)}}
+          {{row.event.event._source.priority.priority.toFixed(3)}}
         </td>
         <td>
           <div *ngIf="!isArchived(row)" class="btn-group float-right"

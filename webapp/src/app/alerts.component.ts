@@ -378,7 +378,12 @@ export class AlertsComponent implements OnInit, OnDestroy, AfterViewChecked {
             case "priority":
                 // console.log(this.allRows[0]);
                 this.allRows.sort((a: any, b: any) => {
-                    return this.compare(a.event.event._source.analytics.triage.priority, b.event.event._source.analytics.triage.priority);
+                    if (a.event.event._source.priority && b.event.event._source.priority) {
+                        return this.compare(
+                            a.event.event._source.priority.priority, 
+                            b.event.event._source.priority.priority);
+                    }
+                    return 0;
                 });
                 break;
         }

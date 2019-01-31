@@ -57,9 +57,9 @@ import {ActivatedRoute} from "@angular/router";
                 </a>
             </th>
             <th *ngIf="eventType != 'dns'">
-                <a (click)="sortBy('analytics.triage.priority')" style="display: block; width: 80px;">
+                <a (click)="sortBy('priority.priority')" style="display: block; width: 80px;">
                     Priority
-                    <i *ngIf="this.sortByField == 'analytics.triage.priority' && this.order == 'asc'" class="fa fa-chevron-up"></i><i *ngIf="this.sortByField == 'analytics.triage.priority' && this.order == 'desc'" class="fa fa-chevron-down"></i>
+                    <i *ngIf="this.sortByField == 'priority.priority' && this.order == 'asc'" class="fa fa-chevron-up"></i><i *ngIf="this.sortByField == 'priority.priority' && this.order == 'desc'" class="fa fa-chevron-down"></i>
                 </a>
             </th>
             <!-- Description. -->
@@ -92,7 +92,7 @@ import {ActivatedRoute} from "@angular/router";
                   &nbsp;
                 </div>
                 <div *ngIf="eventType != 'dns' && row._source.analytics && row._source.analytics.triage">
-                    {{row._source.analytics.triage.priority.toFixed(3)}}
+                    {{row._source.priority.priority.toFixed(3)}}
                 </div>
                 <div *ngIf="eventType == 'dns' && row._source.analytics && row._source.analytics.dga">
                     {{row._source.analytics.dga.score.toFixed(3)}}
