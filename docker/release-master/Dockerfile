@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER Jason Ish <ish@unx.ca>
+LABEL maintainer="Counterflow AI <ss@counterflowai.com>"
 
 # RUN rpm -Uvh https://evebox.org/files/rpm/development/evebox-development-release.noarch.rpm && \
 #     yum install --disablerepo=* --enablerepo=evebox-development -y evebox && \
