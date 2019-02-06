@@ -69,7 +69,7 @@ after_success:
   - docker build -t $DOCKER_REPO:$TRAVIS_COMMIT ./docker/release-${TRAVIS_BRANCH}
   - docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:$TRAVIS_BRANCH
   - docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER
-  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - docker login --username "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
   - docker push $DOCKER_REPO
 
 deploy:
