@@ -59,11 +59,11 @@ script:
     cp dist/*.rpm deploy/
   fi
 after_success:
-  - docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
-  - docker build -t $DOCKER_REPO:$TRAVIS_COMMIT ./docker/release-${TRAVIS_BRANCH}
-  - docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:$TRAVIS_BRANCH 
-  - docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER 
-  - docker push $DOCKER_REPO
+  - docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}"
+  - docker build -t ${DOCKER_REPO}:${TRAVIS_COMMIT} ./docker/release-${TRAVIS_BRANCH}
+  - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:${TRAVIS_BRANCH}
+  - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:travis-${TRAVIS_BUILD_NUMBER}
+  - docker push ${DOCKER_REPO}
 deploy:
 - provider: s3
   access_key_id:
