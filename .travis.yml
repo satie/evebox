@@ -29,8 +29,8 @@ matrix:
     language: go
     go: '1.11'
 before_install:
-- echo "${DOCKER_USERNAME} - "
-- echo $DOCKER_USERNAME
+- echo "${DOCKER_USERNAME} - ${DOCKER_PASSWORD}"
+- docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 - nvm install ${NODE_VERSION}
 - nvm use ${NODE_VERSION}
 script:
