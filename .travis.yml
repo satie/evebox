@@ -11,8 +11,8 @@ env:
   - DOCKER_OWNER=satie
   - DOCKER_IMAGE_NAME=evebox
   - DOCKER_REPO=${DOCKER_OWNER}/${DOCKER_IMAGE_NAME}
-  - secure: MIjDS1Jctp/NhAt6lf2SxYEbD3t3226WyvrllW07vz42TvNi7iKVguEvQX7Fk8SXs3LqmefO+CyBiAp/x2v9Gwzs528AK65K6rHk+94KkCSLKQnhJma4NAfzrR+wxjFFttEheoHQeM+zR6Elj6aSvIGFSClUAXTUY3KPw9ORsp4kxS4UPwaR8W645Y51AT2+orF7T2yTO4WCBkEXSo6YsAmXTy3XmtGx0zLPFH7/og91LXsVGyDfyH7I1jLfijNOT+8amMcifbzFsEkc/G8Wq4HJK7SPBU/hMkAsEjLnabnXh5Cex6DcowLKboZqnTWl3NUcrTFCpy5dXvS4l8YqqSf25xX3m2NVmmsE6gXXOq+a/R7dnqiSzEcx2xvUlcJVKHQFXDhSZWJPKekTvWrlYyerE+bfzAlRQOLzlTlOXj4zyRRGwX+OXbVyQ4uqQUKSKLrCAG542+dQObWrhYUz6b5pFBBOpNl47u60R/IwML7CgZS5dhK0H5C9GuIIPpIHTSQ7+jRJIzHohZr7xB6XRsMgbZeC/1gc/cJlZ8a3rMwlkxfT+mDVhrNhfht3eyekssfynlQXddoSSkJNO5Hrl4tZ+5GbjUeKIWlcaKEeseitc9nl1n+f49byX0CwG2KeggaqsMij06I4s1mdahIhgbZ1WtIKZqtnR3C4nOnrtXg= #DOCKER_USER
-  - secure: F6n0uS7RtGFV+KWlXv/AlHqyHk1e9PSaI5c7HnQT5m0o2kPj3A6mDN1up/hPzXeYJFfxLScemt/pjpEQbVQTWqKvFCK58sZsPB/a+uuvLtha5G7KNWjI0HpC7ED/UjmSfGZkoq5+OOB5uPQAJb0l/6GDFYUKfS95SLLc7CxUyxOhKXq3uVH4isJK/Bs+ik62WOpIg/Ui+4NBuZx343eHfreD0U/FhekihUrc3jtT0RQAnGtLSJojqppOGqVCDKwLoTFImSRwzhVyuHbdzIISnh784w/pIlBOtmzeMtBNlmbnGwkpZUkv/i4TKTmyPbe5j/f/raY+z5pxn1MPhXB6uftxXuOAugP8TdUVJQcRx/MKeOwsU4sJbaSXxSHGiQZdGpP33qifQqqQ7RN0PzsbdN5w2BsfKVRq1MmR8dCbzB7bX3q++nEQx20kFZqUYxUCN9yszK7weXF68+GUYr+DtrnfcjLw6FcqVNaS1ubF250OSXOYAxBQoj10wgwxcUDJ55CJ7YyNTY/apROxP7c3aNvl/B2zC1IidNsVD8XufHuiYAO1u9li757mLMtUfkCHzYwXPRXMFwwMdWhoXkOwTxVda4lWHWGJ4xiR2i0w4Bjm9nwINQG07gP4uqI5MeiV5EzMNZQbj4XadSkYSibnSwI/PqGVid9WEgE/nsqJMc8= #DOCKER_PASSWORD
+  - secure: wMMplEXcdWKUq+2x5+prA2TTQJjKKx6aQKIWD+dAKYi9Pc/8Fa0f3DuF1z79idmyJ3Lue/2aVrCf66sLbxMxtmNGxK1j1GJDFmFLCi27OPITInDbEE5YZ9ynSRKds9shw+zx1+UiygA9ax4vcw5PkYeSxnoa4C8KL9ZQx8wO7ZrMRLReFhtC3c5Y/7C4rpx19bPKGenjdoVeX+1/LCvUw6pQYqmyNuztfBJtIGXY+pBoKjJBqr/kr5H+3+vbyJQB+6x8jHIlk14NLjVECUo+6CmX+3/xEdAlo4+IhAuwIucV5Al/7D1pOMldi0+nDjcNlR1IZonj58/vO/XcCpGkIyYKcH1wniGMushXJwbr1o3NR8bndKKzfw9Z+ma2jbTycLAo0xOVgRpdYeI6QaDijgs1f8pKA6tFjhInDrhJORn2kSF1ai6TFFWK0vghqUCQKRK50pf3wMiq3/FDvWWat8k5FD8e2bhSTFu7vxH7j8QNwixOa6kTE5kaTP9QhnZNU+7TUOtO/W6tJS5uW768RXjiumgpt/5qKykDv8D4le6vXeb4q2KPnO0tRRvARHwLV4l/xcjFhHdmBg29lXsfxEwHT5QqNwAd+xXsx4E9rA/y5JfOWav0SYCdsNRYT6rXf2yt7Jp4jqMyKWY73qhHnYZyVZJsg477KaBwt7R6xDg=
+  - secure: AIb7B4UJvFjm7mQTfh0fayVGple3/IA596UYyhQ2uKRueG3VAa1Fy7Nqjf8JA3/I0xsvCmkDWZs2DBh6R4zr7b5PtWFVsH/OXX0rdPDXPLd30P9EsfTn+a9/RJxusbHzoGvBtd/Rsn6EfW0JApp/D5VvBYeyIhSC8IXH+lcOr4X7/Oq/Iu6zP1cq/EqndhFk1qacGaLKPDOv+JIMO6U0oYXb0l9loTHCVugZJkqvi3yUJlcrg7kb6n1WAzWYvP175CCcC1za4Y+wkzGH1PaDqLEHRCemXqVLovcCul1zl45w8a4pdbqFOOmigNO6/ZH8TT0i4ShqpCE+3+KjDyrpX7RpazwMkBZW1/hworT12ZYz5kR5Nq1wAZQl2v8xzs+vNYe5T5WQflM1+Q9DQ4PCDU7KrGodYrdWypWmRG+Vnea3ra0lgVAgGbQkFaVIdD5vqN3yIR8GHmwJMBT0fScr5BMfCyWX3+bMM+yR6MzhtHxYTYrAcP83JKovXKmivX/70u3dE6jZr7QCcjK2j3jsm7dC3DvjA4Q4WLKxFgOUSV1kv6hrjGhhjWexRxmohFgSeBoRmhTduFpHt1qaS/FixCWzsLM6UGxP1SJY+nA9cgAl0qYoeIhiKHe68pAd22ZWqDeXTU2j21UDZBsJwmeYv2lKeMtECKUeSgN5y/xmqbM=
 matrix:
   allow_failures:
   - os: osx
@@ -30,6 +30,9 @@ matrix:
     language: go
     go: '1.11'
 before_install:
+- echo "${DOCKER_USERNAME} - "
+- echo DOCKER_USERNAME
+- docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 - nvm install ${NODE_VERSION}
 - nvm use ${NODE_VERSION}
 script:
@@ -59,12 +62,13 @@ script:
     cp dist/*.rpm deploy/
   fi
 after_success:
-  - echo $DOCKER_USER
-  - docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}"
-  - docker build -t ${DOCKER_REPO}:${TRAVIS_COMMIT} ./docker/release-${TRAVIS_BRANCH}
-  - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:${TRAVIS_BRANCH}
-  - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:travis-${TRAVIS_BUILD_NUMBER}
-  - docker push ${DOCKER_REPO}
+- echo "${DOCKER_USERNAME} - "
+- echo DOCKER_USERNAME
+- docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
+- docker build -t ${DOCKER_REPO}:${TRAVIS_COMMIT} ./docker/release-${TRAVIS_BRANCH}
+- docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:${TRAVIS_BRANCH}
+- docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:travis-${TRAVIS_BUILD_NUMBER}
+- docker push ${DOCKER_REPO}
 deploy:
 - provider: s3
   access_key_id:
@@ -122,12 +126,3 @@ deploy:
     branch: release
   acl: public_read
   upload-dir: release
-# - provider: script
-#   script: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD" &&
-#     docker build -t $DOCKER_REPO:$TRAVIS_COMMIT ./docker/release-${TRAVIS_BRANCH}
-#     && docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:$TRAVIS_BRANCH && docker
-#     tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER && docker
-#     push $DOCKER_REPO
-#   on:
-#     repo: satie/evebox
-#     branch: master
