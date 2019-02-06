@@ -59,6 +59,7 @@ script:
     cp dist/*.rpm deploy/
   fi
 after_success:
+  - echo ${DOCKER_USER}
   - docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}"
   - docker build -t ${DOCKER_REPO}:${TRAVIS_COMMIT} ./docker/release-${TRAVIS_BRANCH}
   - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:${TRAVIS_BRANCH}
