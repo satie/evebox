@@ -31,8 +31,7 @@ matrix:
     go: '1.11'
 before_install:
 - echo "${DOCKER_USERNAME} - "
-- echo DOCKER_USERNAME
-- docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
+- echo $DOCKER_USERNAME
 - nvm install ${NODE_VERSION}
 - nvm use ${NODE_VERSION}
 script:
@@ -63,7 +62,7 @@ script:
   fi
 after_success:
 - echo "${DOCKER_USERNAME} - "
-- echo DOCKER_USERNAME
+- echo $DOCKER_USERNAME
 - docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 - docker build -t ${DOCKER_REPO}:${TRAVIS_COMMIT} ./docker/release-${TRAVIS_BRANCH}
 - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:${TRAVIS_BRANCH}
