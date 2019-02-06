@@ -14,8 +14,8 @@ env:
     - DOCKER_IMAGE_NAME=evebox
     - DOCKER_REPO=${DOCKER_OWNER}/${DOCKER_IMAGE_NAME}
     - DOCKER_USERNAME=satie
-    - secure: "AVnA93rlHEcXoBkhhd4w4I5VOCn+vA61o/jduG8w054gldRQuPh9eSpWrRlSabXlbFEarJe8sxyH9JehxWvTpey1kLrcCehN5pZZO8xPYsVhka8oBfT61HXKn9sV2TPle1XflymyBf/neyzVnThxqTwTD2eINFi72HnXG0c82/eaSynxBubyIo4mnf213avim52l56HJmzQpYxIhYUSR1McqJ1myAFq2B86TNLgtILcdCdj1U4ImzzgoFYrhcZfAJ8XZh/8aLd/iNbbbVfXUr6QnTU6X0pV9gGRT+qVUohi7KZeaeUWZtK5bChY/G0jzqrXg+gRwcDUMXtUbAHlAAhq6FtcWlBC1Ue5iqUvUNE3gA9fc481FaFicqbE3cJFgFze7bodft/HDkFwNd0Jo01KBqJWt3/B3IJDjPFmop8ZMStime7tD3PVwIVA66eR8dqLbZ6K5dEun4MYs552aXMKZxN5CkB7AX2UFJpy2ph3CNyEVBmfTYkbKiljieTNBs8tcyZzFwyd/nIsEKLZ65EqGMTUh+MbobgG26o30xcS2vWwgh1NJF0jt9jGZat2idvQZxuckxXwzmJIHSZufGrHRBekSOGP/lttNcRfTetS3jd+wese5GkYbLOVMvvknk7H5pONL/RdY9k2Yl58yjwysWIbVwI5OCYQd0os0XCM=" #DOCKER_USER
-    - secure: "YNH0LMWrw+sq1l433gRNzfQLmKOo4EmVUmvXVbVJDAd/UEjSz2SxoSAMKRs96Vh7neHKKj2MGhOHaoPNDnpfwPHzB8eZJipWu8uscQzofADMpSnIkSTH1s30FqhLbuOQrIugguHZaetgiv0hpiWDff9URdRXrArgsmfnEkdK1zVAnSsNTi4Gr85xCPLtObW6vvBezI4yYNQlYQX7scHluhNviWuONZGQMtZsFIIt6zgT3QeumJEjjr5wo+CTz52Kh588rCNzqOQkF9gfKgx8qfH7YrVraTGtVvR/2TlMgofFw4go2O9SpOEWleD6M1jc3eEMaNUqtLSCMHhTSM07+/NX/D335mdpUGhyw2p9dOw8/RxUIJGoXc2q6ZT1kmQ/lc6Wc7euRuH5LpXGCzi1hA4jzgJWUEMAydT/MYo9Rhqesv1F9Ncm4BzPIKe/iAEg7tB9IL2f3fz7sjX9vrPIo/0EFhymj76H4Fg09oqOXLWlWQr0AnibJrJtioGhB1XuqVu0iZGDgQy1fY1XN6bCdjtCCYii48oV9bW2KaP1qkueRmdu3nLjh282VuU2ZIg6obdqH55Yvc2dRik6TydkMbF+1Wx2oztMFOg355SuD9e8C0kV66fgUFYW2KSrUecXOsVH5tcrs/O9TePbioydvMIxxa2alry+xlyAaKdc78M=" #DOCKER_PASSWORD
+    - secure: "Z3IFnMwhMLc/xU7m+NiBwN+e+bBRdbRubF7TFzLOh11J007qBhMJ3mObCdGtVRNqekBM9Z/MqIglQMNTKZlbuV6Cnj0HIz3FxIatri5/IL1Pfyz5pfujKaKiRhVH8mE0y/HY/GOlV4yRqso4JhYsNw9c4YVBiqJYl/OUNkYOE7KH+yc42o9I1q4i03QBQPcx9Xr8l6KLR+/w45oVbRQ0b89PK7VpyPZs//eVSQ3xBskdXB6MMb9Mxmk+m69fMgyrioXFbmgFsi+8nrBqHs23NT8C9MnqtRk/udQqv3edrfdtx5POmzZmFX7QQQBDS/1l2DJV7jHpu1f/tWrV0474m8nTAQHkI2GBdwIJmlqMoMQAn7h7QfmwHnPU1qwK2dUy0l7Wz5GBNCzyhiNP4IMlML3rOrrM5w+DmDbaXYjrwFwU3umXk4d03t65Z08FzHkI8tMsUUDWQm3polOtj34FOGH3rqutn1ksm5m+Rv/Dg2/BNOpY3d15mkq5WSRWi7iIpYzHKrgY2mCDLvn3vWzKRDr/OLRzT/tyLxHFFsa6afdPqREn7Z9GMD+k6sktlkhmYwyBlWFky8Bp0vknU6NK/WWS93GsJQm6dW1U9mA0ollw4KWismueQm9uO+mWD+LrA0xcN0Z3qKp4Rw9R6Gn0PdBXpksoXVvQICLctNmfEkQ=" #DOCKER_USER
+    - secure: "sRoj7fmcb83Pv2DdpYW1mOsRN7k3zalMKCHfFW67axCFTc2/OjONKhPg63MjtMgDvekiyxNP7CZh4k5l9lOCW4qy1WL1EzSuMTdfkG60broT/VsFO0p5Oqi8yrTNPQIZwhPfBIXoLkciyXILD9Se1zh9iKwPtbF3LI25+8tfdJXFf4wlmG3dv7eFE9550j1lSFRWCc+pc20A6ZlNk6lK7Cy7ECoIIpvTPsD5KdbWlykz0lbfXWG8HFRwtT2W/AiWGBI5bckqta81PV2PWlv+/2j24CQe1UKeqOMe1q5qUuBBjm5lOo30mxfpXiBRib//fU+GV+0KMCVQqcki9cj3gecR1QY9GDUONn3G4yNiYMtehu0oUaEq485lgpXATsON5q9tNuCYui6NMsgVARurP1Dgr+OjNS1JMEbXcraYtyLTGrQ14tFFichLQKhIP3/vBUG0dTyKitsQPj7SAnWVZmzaPagBimKpp8I9/O4cWHXHA3+H78suwoMFwgAib7rWovdmah9JyHd/D8IWMn5Qc7EbQu6U6RRcogO9i7ZveMZqNmbaGWxQHF+T2FnEywWm5Bptd70PkIYuNAf4xnYhhpPdc89hj/OCeZoQmxYzKEhLWUSXKBQmNsifjVPpQ55suG/CRspVoc+XRFeOPHL0KjNS6/2zgIaNm02QwfUm6Y4=" #DOCKER_PASSWORD
 
 matrix:
   allow_failures:
@@ -64,13 +64,6 @@ script:
       cp dist/*.deb deploy/
       cp dist/*.rpm deploy/
     fi
-
-after_success:  
-  - docker build -t $DOCKER_REPO:$TRAVIS_COMMIT ./docker/release-${TRAVIS_BRANCH}
-  - docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:$TRAVIS_BRANCH
-  - docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER
-  - docker login --username "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
-  - docker push $DOCKER_REPO
 
 deploy:
   - provider: s3
@@ -129,3 +122,13 @@ deploy:
       branch: release
     acl: public_read
     upload-dir: release
+  - provider: script
+    script:
+      docker login --username "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD" &&
+      docker build -t $DOCKER_REPO:$TRAVIS_COMMIT ./docker/release-${TRAVIS_BRANCH} &&
+      docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:$TRAVIS_BRANCH &&
+      docker tag $DOCKER_REPO:$TRAVIS_COMMIT $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER &&
+      docker push $DOCKER_REPO
+    on:
+      repo: satie/evebox
+      branch: master
