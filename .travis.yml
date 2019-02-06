@@ -10,8 +10,7 @@ env:
   - GO111MODULE=on
   - DOCKER_OWNER=satie
   - DOCKER_IMAGE_NAME=evebox
-  - DOCKER_REPO=${DOCKER_OWNER}/${DOCKER_IMAGE_NAME}  
-  - secure: AIb7B4UJvFjm7mQTfh0fayVGple3/IA596UYyhQ2uKRueG3VAa1Fy7Nqjf8JA3/I0xsvCmkDWZs2DBh6R4zr7b5PtWFVsH/OXX0rdPDXPLd30P9EsfTn+a9/RJxusbHzoGvBtd/Rsn6EfW0JApp/D5VvBYeyIhSC8IXH+lcOr4X7/Oq/Iu6zP1cq/EqndhFk1qacGaLKPDOv+JIMO6U0oYXb0l9loTHCVugZJkqvi3yUJlcrg7kb6n1WAzWYvP175CCcC1za4Y+wkzGH1PaDqLEHRCemXqVLovcCul1zl45w8a4pdbqFOOmigNO6/ZH8TT0i4ShqpCE+3+KjDyrpX7RpazwMkBZW1/hworT12ZYz5kR5Nq1wAZQl2v8xzs+vNYe5T5WQflM1+Q9DQ4PCDU7KrGodYrdWypWmRG+Vnea3ra0lgVAgGbQkFaVIdD5vqN3yIR8GHmwJMBT0fScr5BMfCyWX3+bMM+yR6MzhtHxYTYrAcP83JKovXKmivX/70u3dE6jZr7QCcjK2j3jsm7dC3DvjA4Q4WLKxFgOUSV1kv6hrjGhhjWexRxmohFgSeBoRmhTduFpHt1qaS/FixCWzsLM6UGxP1SJY+nA9cgAl0qYoeIhiKHe68pAd22ZWqDeXTU2j21UDZBsJwmeYv2lKeMtECKUeSgN5y/xmqbM=
+  - DOCKER_REPO=${DOCKER_OWNER}/${DOCKER_IMAGE_NAME}    
 matrix:
   allow_failures:
   - os: osx
@@ -60,12 +59,11 @@ script:
     cp dist/*.rpm deploy/
   fi
 after_success:
-- echo "${DOCKER_USERNAME} - "
-- echo $DOCKER_USERNAME
-- docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 - docker build -t ${DOCKER_REPO}:${TRAVIS_COMMIT} ./docker/release-${TRAVIS_BRANCH}
-- docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:${TRAVIS_BRANCH}
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+- docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:${TAG}
 - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:travis-${TRAVIS_BUILD_NUMBER}
+- docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 - docker push ${DOCKER_REPO}
 deploy:
 - provider: s3
