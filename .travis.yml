@@ -122,9 +122,8 @@ deploy:
   upload-dir: release
 - provider: script
   script:
-    docker build -t ${DOCKER_REPO}:${TRAVIS_COMMIT} ./docker/release-master && 
-    docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:master && 
-    docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:latest &&    
+    docker build -t ${DOCKER_REPO}:latest ./docker/release-master && 
+    docker tag ${DOCKER_REPO}:latest ${DOCKER_REPO}:master && 
     docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}" && 
     docker push ${DOCKER_REPO}
   on:
