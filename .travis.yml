@@ -120,7 +120,7 @@ deploy:
     docker build -t ${DOCKER_REPO}:latest ./docker/release-master && 
     docker tag ${DOCKER_REPO}:latest ${DOCKER_REPO}:master && 
     docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}" && 
-    docker push ${DOCKER_REPO} && 
+    docker push ${DOCKER_REPO}
     fi
   on:
     repo: satie/evebox
