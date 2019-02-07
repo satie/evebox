@@ -126,5 +126,5 @@ deploy:
         docker push ${DOCKER_REPO};
       fi
     on:
-      repo: satie/evebox
+      repo: counterflow-ai/evebox
       branch: master
