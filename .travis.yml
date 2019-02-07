@@ -7,6 +7,9 @@ env:
     - NODE_VERSION="10.13.0"
     - RUBY_VERSION=2.1.1
     - GO111MODULE=on
+    - DOCKER_OWNER=counterflow-ai
+    - DOCKER_IMAGE_NAME=evebox
+    - DOCKER_REPO=${DOCKER_OWNER}/${DOCKER_IMAGE_NAME} 
 
 matrix:
   allow_failures:
@@ -20,6 +23,7 @@ matrix:
           - gcc-mingw-w64
     language: go
     go: "1.11"
+    services: docker
   - os: osx
     osx_image: xcode8.3
     language: go
@@ -113,3 +117,14 @@ deploy:
       branch: release
     acl: public_read
     upload-dir: release
+  - provider: script
+    script:
+      if [ '$TRAVIS_OS_NAME' != 'osx' ]; then 
+        docker build -t ${DOCKER_REPO}:latest ./docker/release-master && 
+        docker tag ${DOCKER_REPO}:latest ${DOCKER_REPO}:master && 
+        docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}" && 
+        docker push ${DOCKER_REPO};
+      fi
+    on:
+      repo: satie/evebox
+      branch: master
