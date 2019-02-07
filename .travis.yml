@@ -1,6 +1,5 @@
 sudo: false
-services:
-- docker
+
 env:
   global:
   - GOPATH=~/gopath
@@ -23,6 +22,7 @@ matrix:
         - gcc-mingw-w64
     language: go
     go: '1.11'
+    services: docker
   - os: osx
     osx_image: xcode8.3
     language: go
@@ -56,13 +56,6 @@ script:
     cp dist/*.deb deploy/
     cp dist/*.rpm deploy/
   fi
-# after_success:
-# - docker build -t ${DOCKER_REPO}:${TRAVIS_COMMIT} ./docker/release-${TRAVIS_BRANCH}
-# - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-# - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:${TAG}
-# - docker tag ${DOCKER_REPO}:${TRAVIS_COMMIT} ${DOCKER_REPO}:travis-${TRAVIS_BUILD_NUMBER}
-# - docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
-# - docker push ${DOCKER_REPO}
 deploy:
 - provider: s3
   access_key_id:
@@ -122,10 +115,12 @@ deploy:
   upload-dir: release
 - provider: script
   script:
+    if [[ $TRAVIS_OS_NAME != 'osx' ]]; then &&
     docker build -t ${DOCKER_REPO}:latest ./docker/release-master && 
     docker tag ${DOCKER_REPO}:latest ${DOCKER_REPO}:master && 
     docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}" && 
-    docker push ${DOCKER_REPO}
+    docker push ${DOCKER_REPO} && 
+    fi
   on:
     repo: satie/evebox
     branch: master
