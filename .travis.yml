@@ -115,7 +115,7 @@ deploy:
   upload-dir: release
 - provider: script
   script:
-    if [[ $TRAVIS_OS_NAME != 'osx' ]] 
+    if [[ '$TRAVIS_OS_NAME' != 'osx' ]]; 
     then 
     docker build -t ${DOCKER_REPO}:latest ./docker/release-master && 
     docker tag ${DOCKER_REPO}:latest ${DOCKER_REPO}:master && 
