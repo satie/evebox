@@ -29,7 +29,12 @@ package server
 import (
 	"errors"
 	"fmt"
+
 	"github.com/jasonish/evebox/resources"
+
+	"runtime"
+	"strings"
+	"time"
 
 	"github.com/jasonish/evebox/appcontext"
 	"github.com/jasonish/evebox/core"
@@ -47,9 +52,6 @@ import (
 	"github.com/jasonish/evebox/useragent"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
-	"runtime"
-	"strings"
-	"time"
 )
 
 const DEFAULT_DATA_DIR = ""
@@ -200,7 +202,7 @@ func Main(args []string) {
 	viper.BindPFlag("database.elasticsearch.index", flagset.Lookup("index"))
 	viper.BindEnv("index", "ELASTICSEARCH_INDEX")
 
-	flagset.StringP("elasticsearch-template", "", "","Elastic Search template name")
+	flagset.StringP("elasticsearch-template", "", "", "Elastic Search template name")
 	viper.BindPFlag("database.elasticsearch.template", flagset.Lookup("elasticsearch-template"))
 	viper.BindEnv("elasticsearch-template", "ELASTICSEARCH_TEMPLATE")
 
@@ -247,6 +249,15 @@ func Main(args []string) {
 	var input string
 	flagset.StringVar(&input, "input", "", "Input eve-log file (optional)")
 	inputStart := flagset.Bool("input-start", false, "Read start of input file (if no bookmark)")
+
+	// ThreatEye Forensics command line parameters
+	flagset.StringP("threateye", "t", "", "ThreatEye Forensics URI")
+	viper.BindPFlag("threateye.url", flagset.Lookup("threateye"))
+	viper.BindEnv("threateye.url", "TEF_URL")
+
+	flagset.StringP("uuid", "u", "", "ThreatEye Forensics UUID")
+	viper.BindPFlag("threateye.uuid", flagset.Lookup("uuid"))
+	viper.BindEnv("threateye.uuid", "TEF_UUID")
 
 	flagset.Parse(args[0:])
 
@@ -443,6 +454,15 @@ func Main(args []string) {
 	default:
 		log.Fatal("unsupported datastore: ",
 			viper.GetString("database.type"))
+	}
+
+	// Set Threateye configuratin in app context
+	if viper.GetString("threateye.url") != "" {
+		threateye := appcontext.ThreatEye{
+			URL:  viper.GetString("threateye.url"),
+			UUID: viper.GetString("threateye.uuid"),
+		}
+		appContext.ThreatEye = threateye
 	}
 
 	initInternalEveReader(&appContext, *inputStart)

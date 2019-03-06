@@ -120,6 +120,8 @@ export class EventComponent implements OnInit, OnDestroy {
 
     public commentInputVisible: boolean = false;
     public features: any = {};
+    
+    public threateye: any = null;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
@@ -149,6 +151,10 @@ export class EventComponent implements OnInit, OnDestroy {
 
         if (this.configService.hasFeature(FEATURE_COMMENTS)) {
             this.features["comments"] = true;
+        }
+
+        if (this.configService.getConfig().threateye && this.configService.getConfig().threateye.url) {
+            this.threateye = this.configService.getConfig().threateye;
         }
 
         let alertGroup = this.eventService.popAlertGroup();

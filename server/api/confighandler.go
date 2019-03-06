@@ -27,8 +27,11 @@
 package api
 
 import (
-	"github.com/spf13/viper"
 	"net/http"
+
+	"github.com/jasonish/evebox/appcontext"
+
+	"github.com/spf13/viper"
 )
 
 type ConfigResponse struct {
@@ -37,6 +40,7 @@ type ConfigResponse struct {
 	Extra              map[string]interface{}   `json:"extra"`
 	Features           map[string]bool          `json:"features"`
 	Defaults           map[string]interface{}   `json:"defaults,omitempty"`
+	ThreatEye          map[string]interface{}   `json:"threateye"`
 }
 
 func (c *ApiContext) ConfigHandler(w *ResponseWriter, r *http.Request) error {
@@ -71,6 +75,12 @@ func (c *ApiContext) ConfigHandler(w *ResponseWriter, r *http.Request) error {
 	if c.appContext.DefaultTimeRange != "" {
 		response.Defaults["time_range"] = c.appContext.DefaultTimeRange
 		response.Defaults["force_time_range"] = c.appContext.ForceDefaultTimeRange
+	}
+
+	response.ThreatEye = make(map[string]interface{})
+	if c.appContext.ThreatEye != (appcontext.ThreatEye{}) {
+		response.ThreatEye["url"] = c.appContext.ThreatEye.URL
+		response.ThreatEye["uuid"] = c.appContext.ThreatEye.UUID
 	}
 
 	return w.OkJSON(response)
