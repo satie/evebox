@@ -100,7 +100,7 @@ dpkg -i dist/evebox-latest-amd64.deb
 evebox -v -e http://localhost:9200 -i logstash --elasticsearch-keyword keyword
 ```
 
-### ThreatEye Forensic Integration
+### ThreatEye Forensics Integration
 If you have a [ThreatEye](https://threateye.io/) Forensics packet capture solution deployed, you can run evebox with support to download PCAP files from it.
 
 When starting EveBox, pass the URL and UUID of the ThreatEye Forensics instance you want to download PCAPs from. For example,
