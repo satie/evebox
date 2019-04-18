@@ -64,6 +64,14 @@ type Config struct {
 	}
 }
 
+// ThreatEye configuration
+type ThreatEye struct {
+	// URL of ThreatEye instance
+	URL string
+	// UUID of ThreatEye
+	UUID string
+}
+
 type AppContext struct {
 	// Configuration data that is not held in the configuration database.
 	Config Config
@@ -89,6 +97,8 @@ type AppContext struct {
 	// Tell the client to ignore any locally stored configuration of the
 	// default time range.
 	ForceDefaultTimeRange bool
+
+	ThreatEye ThreatEye
 }
 
 func (c *AppContext) SetFeature(feature core.Feature) {

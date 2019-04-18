@@ -241,6 +241,27 @@
         </div>
       </div>
     </div>
+
+    <!-- TEF PCAP -->
+    <div *ngIf="threateye">
+      <br/>
+      <div class="card">
+        <div class="card-header">
+          <b>ThreatEye Forensics</b>          
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <span>
+                <a target="_blank" href="{{threateye.url}}/#/search/{{threateye.uuid}}?sip={{event._source.src_ip}}&dip={{event._source.dest_ip}}&dport={{event._source.dest_port}}&sport={{event._source.src_port}}&from_time={{event._source.timestamp | date:'yyyy-MM-ddTHH:mm:ssZ'}}&to_time=%2b300">
+                  <button type="button" class="btn btn-secondary mr-2">Download PCAP</button>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Analytics -->
     <div *ngIf="event._source.analytics">
       <br/>
