@@ -456,7 +456,7 @@ func Main(args []string) {
 			viper.GetString("database.type"))
 	}
 
-	// Set Threateye configuratin in app context
+	// Set Threateye configuration in app context
 	if viper.GetString("threateye.url") != "" {
 		threateye := appcontext.ThreatEye{
 			URL:  viper.GetString("threateye.url"),
