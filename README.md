@@ -1,4 +1,4 @@
-# EveBox [![Documentation Status](https://readthedocs.org/projects/satieevebox/badge/?version=latest)](https://satieevebox.readthedocs.io/en/latest/?badge=latest) [![Build Status](https://api.travis-ci.org/satie/evebox.svg?branch=master)](https://travis-ci.org/satie/evebox)
+# EveBox [![Documentation Status](https://readthedocs.org/projects/satieevebox/badge/?version=latest)](https://satieevebox.readthedocs.io/en/latest/?badge=latest) [![Build Status](https://api.travis-ci.org/satie/evebox.svg?branch=master)](https://travis-ci.org/satie/evebox) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/satie/evebox.svg)
 
 EveBox is a web based Suricata "eve" event viewer for Elastic Search.
 
